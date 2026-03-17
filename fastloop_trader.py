@@ -275,13 +275,28 @@ if __name__ == "__main__":
 
     print("⚡ Starting 15-Minute BTC Momentum Bot...")
     
+    last_heartbeat = time.time()
+    HEARTBEAT_INTERVAL = 900 # 15 minutes in seconds
+
     while True:
         try:
+            # 1. Run the strategy
             is_monitoring = run_fast_market_strategy(dry_run=not args.live, quiet=args.quiet)
+            
+            # 2. Heartbeat Check
+            current_time = time.time()
+            if current_time - last_heartbeat >= HEARTBEAT_INTERVAL:
+                timestamp = datetime.now(timezone.utc).strftime('%H:%M:%S UTC')
+                print(f"💓 [{timestamp}] Heartbeat: Bot is alive and scanning...")
+                last_heartbeat = current_time
+
+            # 3. Dynamic Sleep
             sleep_time = 1 if is_monitoring else SCAN_INTERVAL_SECONDS
             if not is_monitoring and not args.quiet:
                 print(f"\n⏳ Scanning again in {sleep_time}s...\n")
+            
             time.sleep(sleep_time)
+
         except Exception as e:
             print(f"\nLoop error: {e}")
             time.sleep(SCAN_INTERVAL_SECONDS)
