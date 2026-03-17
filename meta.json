@@ -1,0 +1,8 @@
+{
+  "slug": "btc-15m-momentum-trader",
+  "name": "BTC 15m Momentum Scalper",
+  "description": "Trades 15-minute BTC Polymarket fast markets using Binance spot momentum. Currently running in Paper Mode.",
+  "author": "Trader",
+  "version": "1.0.0",
+  "tags": ["polymarket", "crypto", "btc", "15m", "paper-trading"]
+}
