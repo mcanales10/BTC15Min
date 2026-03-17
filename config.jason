@@ -1,0 +1,15 @@
+{
+  "asset": "BTC",
+  "window": "15m",
+  "signal_source": "binance",
+  "lookback_minutes": 15,
+  "entry_threshold": 0.05,
+  "min_momentum_pct": 0.05,
+  "max_position": 10.0,
+  "max_open_exposure": 20.0,
+  "take_profit_pct": 0.20,
+  "stop_loss_pct": 0.10,
+  "daily_loss_limit": 20.0,
+  "pause_hours_after_loss": 12,
+  "resolution_exit_seconds": 15
+}
