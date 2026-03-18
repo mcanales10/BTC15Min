@@ -1,1 +1,1 @@
-worker: python fastloop_trader.py --quiet
+worker: python fastloop_trader.py 
